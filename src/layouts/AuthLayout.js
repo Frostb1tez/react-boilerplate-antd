@@ -4,7 +4,7 @@ import { Card, Layout } from 'antd'
 const AuthLayout = ({ children }) => {
   return (
     <Layout style={{ minHeight: '100vh', backgroundColor: '#fff' }}>
-      <Layout.Content style={{ padding: '70px 0px', display: 'flex', alignItems: 'center' }}>
+      <Layout.Content style={{ padding: '70px 15px', display: 'flex', alignItems: 'center' }}>
         <Card
           style={{
             width: 600,

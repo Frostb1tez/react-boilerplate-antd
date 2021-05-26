@@ -1,21 +1,23 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
-import AuthLayout from '../layouts/AuthLayout'
-import Login from '../pages/Login'
+import AuthLayout from '../layouts/AppLayout'
+import { Spin } from 'antd'
+
+const Home = lazy(() => import('../pages/Home'))
+
 const Routes = () => {
   return (
-    <Switch>
-      <Route exact path="/">
-        <Redirect to="/login" />
-      </Route>
-      <Route path={['/login']}>
-        <AuthLayout>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-        </AuthLayout>
-      </Route>
-    </Switch>
+    <Suspense fallback={<Spin size="large" />}>
+      <Switch>
+        <Route path={['/']}>
+          <AuthLayout>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </AuthLayout>
+        </Route>
+      </Switch>
+    </Suspense>
   )
 }
 

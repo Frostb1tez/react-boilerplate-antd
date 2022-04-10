@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 import InputWrapper from './InputWrapper'
 import { Input } from 'antd'
 
-const TextInput = ({ name, label, type = 'text', formItemOptions = {}, ...rest }) => {
+const TextInput = ({ name, label = null, type = 'text', formItemOptions = {}, ...rest }) => {
   return (
-    <InputWrapper name={name} label={label} {...formItemOptions}>
+    <InputWrapper name={name} label={label} type={type} {...formItemOptions}>
       <Input type={type} {...rest} />
     </InputWrapper>
   )

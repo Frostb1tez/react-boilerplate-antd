@@ -39,7 +39,7 @@ const Form = ({
     resolver: yupResolver(validationSchema),
   })
   const handleSubmit = (data, e) => {
-    console.log({ data, e })
+    // console.log({ data, e })
     onSubmit(data)
   }
   return (

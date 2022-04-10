@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tuanoi-room1-client
+  namespace: tuanoi-room1
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+  selector:
+    app: tuanoi-room1-client

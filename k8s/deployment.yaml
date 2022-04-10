@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tuanoi-room1-client
+  namespace: tuanoi-room1
+  labels:
+    app: tuanoi-room1-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tuanoi-room1-client
+  template:
+    metadata:
+      labels:
+        app: tuanoi-room1-client
+    spec:
+      volumes:
+        - name: config-volume
+          configMap:
+            name: tuanoi-room1-client
+      containers:
+        - name: tuanoi-room1-client
+          image: 321425772900.dkr.ecr.ap-southeast-1.amazonaws.com/tuanoiclient:latest
+          imagePullPolicy: Always
+          resources: {}
+          ports:
+            - containerPort: 80
+              name: web-port
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: tuanoi-room1-client

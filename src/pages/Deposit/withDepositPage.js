@@ -24,6 +24,12 @@ export function withDepositPage(Component) {
           imageUrl: data.imageUrl,
           type: 'deposit',
         })
+        await liff.sendMessages([
+          {
+            type: 'text',
+            text: 'ทำรายการฝากสำเร็จ กรุณารอซักครู่',
+          },
+        ])
         message.success('Success').then(() => liff.closeWindow())
       } catch (e) {
         message.error(e?.response?.data?.message || e?.message)

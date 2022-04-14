@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-southeast-1:321425772900:certificate/1dfa8e58-e3f1-444b-934b-8da221edca4a
+  name: tuanoi-room2-client
+  namespace: tuanoi-room2
+spec:
+  rules:
+    - host: client-2.rnp-online2020.com
+      http:
+        paths:
+          - path: /.*
+            pathType: Prefix
+            backend:
+              service:
+                name: tuanoi-room2-client
+                port:
+                  number: 80

@@ -93,6 +93,12 @@ export function withWithdrawPage(Component) {
           type: 'withdraw',
           ...bankDetail,
         })
+        await liff.sendMessages([
+          {
+            type: 'text',
+            text: 'ทำรายการถอนสำเร็จ กรุณารอซักครู่',
+          },
+        ])
         message.success('Success').then(() => liff.closeWindow())
       } catch (e) {
         message.error(e?.response?.data?.message || e?.message)

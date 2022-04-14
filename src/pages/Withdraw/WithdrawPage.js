@@ -12,7 +12,7 @@ export function WithdrawPage({
 }) {
   return (
     <div>
-      <Typography.Title level={2} style={{ textAlign: 'center' }}>
+      <Typography.Title level={1} style={{ textAlign: 'center' }}>
         ถอนเงิน
       </Typography.Title>
 

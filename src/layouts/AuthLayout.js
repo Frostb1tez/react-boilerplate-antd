@@ -10,7 +10,7 @@ const AuthLayout = ({ children }) => {
           padding: '70px 30px',
           display: 'flex',
           alignItems: 'center',
-          backgroundImage: `url(${BG})`,
+          backgroundImage: process.env.REACT_APP_ROOM === 'room1' ? `url(${BG})` : undefined,
           backgroundSize: 'cover',
         }}
       >

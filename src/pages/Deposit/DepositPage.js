@@ -12,13 +12,13 @@ export function DepositPage({
 }) {
   return (
     <div>
-      <Typography.Title level={2} style={{ textAlign: 'center' }}>
+      <Typography.Title level={1} style={{ textAlign: 'center' }}>
         ฝากเงิน
       </Typography.Title>
       <div style={{ margin: '25px 0px' }}>
-        <Typography.Title level={5}>ชื่อบัญชี: {bankDetail.bankOwnerName}</Typography.Title>
-        <Typography.Title level={5}>เลขบัญชี: {bankDetail.bankAccount}</Typography.Title>
-        <Typography.Title level={5}>ธนาคาร: {bankDetail.bank} </Typography.Title>
+        <Typography.Title level={4}>ชื่อบัญชี: {bankDetail.bankOwnerName}</Typography.Title>
+        <Typography.Title level={4}>เลขบัญชี: {bankDetail.bankAccount}</Typography.Title>
+        <Typography.Title level={4}>ธนาคาร: {bankDetail.bank} </Typography.Title>
       </div>
       <Form onSubmit={handleSubmit} validationSchema={validationSchema}>
         <TextInput name="priceAmount" placeholder="จำนวณเงิน" suffix="THB" />

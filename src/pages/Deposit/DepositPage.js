@@ -13,8 +13,13 @@ export function DepositPage({
   return (
     <div>
       <Typography.Title level={1} style={{ textAlign: 'center' }}>
-        ฝากเงิน
+        {process.env.REACT_APP_ROOM === 'room1' ? 'แจ้งฝาก ห้อง789' : 'ฝากเงิน'}
       </Typography.Title>
+      {process.env.REACT_APP_ROOM === 'room1' && (
+        <Typography.Title level={5} style={{ color: '#ff0000', margin: '0px' }}>
+          *ข้อมูลที่จำเป็นต้องกรอก
+        </Typography.Title>
+      )}
       <div style={{ margin: '25px 0px' }}>
         <Typography.Title level={4}>ชื่อบัญชี: {bankDetail.bankOwnerName}</Typography.Title>
         <Typography.Title level={4}>เลขบัญชี: {bankDetail.bankAccount}</Typography.Title>

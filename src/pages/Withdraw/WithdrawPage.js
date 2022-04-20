@@ -13,7 +13,7 @@ export function WithdrawPage({
   return (
     <div>
       <Typography.Title level={1} style={{ textAlign: 'center' }}>
-        ถอนเงิน
+        {process.env.REACT_APP_ROOM === 'room1' ? 'แจ้งถอน ห้อง789' : 'ถอนเงิน'}
       </Typography.Title>
 
       <Form
@@ -21,10 +21,10 @@ export function WithdrawPage({
         validationSchema={validationSchema}
         initialValues={initialValues}
       >
-        <TextInput name="bankAccount" placeholder="xxxxxxxxxx" label="เลขที่บัญชี" />
-        <TextInput name="bankOwnerName" placeholder="สวัสดี มีชัย" label="ชื่อบัญชี" />
-        <Select name="bank" placeholder="ไทยพาณิชย์" label="ธนาคาร" options={bankOptions} />
-        <TextInput name="priceAmount" placeholder="xxx" label="จำนวณเงินที่ถอน" suffix="THB" />
+        <TextInput name="bankAccount" label="เลขที่บัญชี" />
+        <TextInput name="bankOwnerName" label="ชื่อบัญชี" />
+        <Select name="bank" label="ธนาคาร" options={bankOptions} />
+        <TextInput name="priceAmount" label="จำนวณเงินที่ถอน" suffix="THB" />
         <SubmitButton loading={loading} block type="primary">
           ถอน
         </SubmitButton>
